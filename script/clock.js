@@ -2,11 +2,21 @@
 	//タイマー起動
 	timerID = setInterval("moveTimer()",1000);
 };
+
 //時計を動かす
 function moveTimer() {
-	var date,Hou,Min,Sec,hDeg,mDeg,sDeg;
+	var date,Yea,Mon,Day,Hou,Min,Sec,hDeg,mDeg,sDeg;
+	var week = ["日", "月", "火", "水", "木", "金", "土"];
 	//日付
 	date = new Date();
+	//年取得
+	Yea = date.getFullYear();
+	//月取得
+	Mon = date.getMonth() + 1;
+	//日取得
+	Day = date.getDate();
+	//曜日取得
+	Wee = week[date.getDay()];
 	//時間取得
 	Hou = date.getHours();
 	//分取得
@@ -17,14 +27,20 @@ function moveTimer() {
 	hDeg = (Hou % 12) * (360 / 12);
 	mDeg = Min * (360 / 60);
 	sDeg = Sec * (360 / 60);
+	//細かい単位の針の動き
 	hDeg += (Min / 60) * (360 / 12);
+	hDeg += (Sec / 60) * (360 / (60 * 12));
 	mDeg += (Sec / 60) * (360 / 60);
 	//デジタル表示
+	if (Mon < 10) Mon = "0" + Mon;
+	if (Day < 10) Day = "0" + Day;
 	if (Hou < 10) Hou = "0" + Hou;
 	if (Min < 10) Min = "0" + Min;
 	if (Sec < 10) Sec = "0" + Sec;
+	//日付表示
+	document.getElementById("clock_date").innerHTML = Yea + "/" + Mon + "/" + Day + "(" + Wee + ")";
 	//時刻表示
-	document.getElementById("clock_time").innerHTML = Hou + ":" + Min + ":" + Sec; 
+	document.getElementById("clock_time").innerHTML = Hou + ":" + Min + ":" + Sec;
 	//短針の表示
 	document.getElementById("image_short").style.transform = "rotate(" + hDeg + "deg)";
 	document.getElementById("image_short").style.MozTransform = "rotate(" + hDeg + "deg)";
