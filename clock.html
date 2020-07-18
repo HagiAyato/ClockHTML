@@ -3,13 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="css/clock.css"/>
-		<script type="text/javascript" src="script/clock.js"/>
-		<script type="text/javascript">
-			//これだけはHTMLに書く
-			window.onload = function() {
-				//タイマー起動
-				timerID = setInterval("moveTimer()",1000);
-			};
+		<script type="text/javascript" src="script/clock.js">
 		</script>
 		<title>アナログ時計</title>
 	</head>
@@ -24,8 +18,23 @@
 			<img src="media/sec.png" id="image_sec" class="clock">
 		</div>
 		<hr>
-		現在時刻：
-		<div id="clock_date">----/--/--</div>
-		<div id="clock_time">--:--:--</div>
+		<table>
+			<tr>
+				<td>
+					現在日付：
+				</td>
+				<td>
+					<div id="clock_date">----/--/--</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					現在時刻：
+				</td>
+				<td>
+					<div id="clock_time">--:--:--</div>
+				</td>
+			</tr>
+		</table>
 	</body>
 </html>
