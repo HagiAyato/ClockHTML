@@ -35,9 +35,14 @@
 					時間設定：
 				</td>
 				<td>
-					<form id="timeset" onsubmit="settime()">
-						<input type="datetime-local" id="inputDT">
-						<input type="submit" value="時間表示" id="inputSubmit">
+					<form id="timeset">
+						<input type="text" id="input_year">/
+						<input type="text" id="input_month">/
+						<input type="text" id="input_day">  
+						<input type="text" id="input_hour">:
+						<input type="text" id="input_min">:
+						<input type="text" id="input_sec">
+						<input type="button" value="時間表示" id="inputSubmit" onclick="settime()">
 					</form>
 				</td>
 			</tr>

@@ -3,23 +3,53 @@
 	timerID = setInterval("moveTimer()",1000);
 };
 
+//数値の正常異常判定
+function numValidate(num,min,max,type){
+	//数値?
+	if(isNaN(num)){
+		alert(type + "が数値ではありません!!");
+		return false;
+	}
+	//上限下限
+	if((num < min)||(max < num)){
+		alert(type + "が上限(" + max + ")下限(" + min + ")を超えています!!");
+		return false;
+	}
+	return true;
+}
+
 //時間設定時
 function settime() {
-	alert(document.getElementById("inputDT").value);
+	//変数定義
+	var date,Yea,Mon,Day,Hou,Min,Sec;
+	//値を取得
+	Yea = document.getElementById("input_year").value;
+	Mon = document.getElementById("input_month").value;
+	Day = document.getElementById("input_day").value;
+	Hou = document.getElementById("input_hour").value;
+	Min = document.getElementById("input_min").value;
+	Sec = document.getElementById("input_sec").value;
+	//Validationg
+	if(!numValidate(Yea,1900,2100,"年"))return;
+	if(!numValidate(Mon,1,12,"月"))return;
+	if(!numValidate(Day,1,31,"日"))return;
+	if(!numValidate(Hou,0,23,"時"))return;
+	if(!numValidate(Min,0,59,"分"))return;
+	if(!numValidate(Sec,0,59,"秒"))return;
 	//日付
 	date = new Date();
 	//年設定
-	date.setFullYear('2020');
+	date.setFullYear(Yea);
 	//月設定
-	date.setMonth('7');
+	date.setMonth(Mon-1);
 	//日設定
-	date.setDate('24');
+	date.setDate(Day);
 	//時間設定
-	date.setHours('20');
+	date.setHours(Hou);
 	//分設定
-	date.setMinutes('00');
+	date.setMinutes(Min);
 	//秒設定
-	date.setSeconds('00');
+	date.setSeconds(Sec);
 	showClock(date);
 }
 
