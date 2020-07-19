@@ -6,22 +6,38 @@
 //時間設定時
 function settime() {
 	alert(document.getElementById("inputDT").value);
+	//日付
+	date = new Date();
+	//年設定
+	date.setFullYear('2020');
+	//月設定
+	date.setMonth('7');
+	//日設定
+	date.setDate('24');
+	//時間設定
+	date.setHours('20');
+	//分設定
+	date.setMinutes('00');
+	//秒設定
+	date.setSeconds('00');
+	showClock(date);
 }
 
 //時計を動かす
 function moveTimer() {
 	//時間更新無効の場合はすぐに処理終了
 	var settingElements = document.getElementById("settings");
-	if(settingElements.timeMode.value === "2"){
-		return;
-	}else{
-		
-	}
+	if(settingElements.timeMode.value === "2") return;
+	//日付
+	date = new Date();
+	showClock(date);
+}
+
+//時計表示
+function showClock(date) {
 	//変数定義
 	var date,Yea,Mon,Day,Hou,Min,Sec,hDeg,mDeg,sDeg;
 	var week = ["日", "月", "火", "水", "木", "金", "土"];
-	//日付
-	date = new Date();
 	//年取得
 	Yea = date.getFullYear();
 	//月取得
@@ -70,5 +86,5 @@ function moveTimer() {
 	document.getElementById("image_sec").style.transform = "rotate(" + sDeg + "deg)";
 	document.getElementById("image_sec").style.MozTransform = "rotate(" + sDeg + "deg)";
 	document.getElementById("image_sec").style.WebkitTransform = "rotate(" + sDeg + "deg)";
-	document.getElementById("image_sec").style.msTransform = "rotate(" + sDeg + "deg)";   
+	document.getElementById("image_sec").style.msTransform = "rotate(" + sDeg + "deg)";
 }
