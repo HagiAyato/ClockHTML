@@ -21,3 +21,11 @@
 	/*重なり順制御*/
 	z-index: 2;
 }
+/*入力4桁*/
+.input4num {
+	width: 40px;
+}
+/*入力2桁*/
+.input2num {
+	width: 20px;
+}

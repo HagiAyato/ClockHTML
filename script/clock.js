@@ -7,7 +7,7 @@
 function numValidate(num,min,max,type){
 	//数値?
 	if(isNaN(num)){
-		alert(type + "が数値ではありません!!");
+		alert(type + "が半角数値ではありません!!");
 		return false;
 	}
 	//上限下限
