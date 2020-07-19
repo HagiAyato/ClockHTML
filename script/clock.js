@@ -3,8 +3,21 @@
 	timerID = setInterval("moveTimer()",1000);
 };
 
+//時間設定時
+function settime() {
+	alert(document.getElementById("inputDT").value);
+}
+
 //時計を動かす
 function moveTimer() {
+	//時間更新無効の場合はすぐに処理終了
+	var settingElements = document.getElementById("settings");
+	if(settingElements.timeMode.value === "2"){
+		return;
+	}else{
+		
+	}
+	//変数定義
 	var date,Yea,Mon,Day,Hou,Min,Sec,hDeg,mDeg,sDeg;
 	var week = ["日", "月", "火", "水", "木", "金", "土"];
 	//日付

@@ -12,4 +12,12 @@
 	height: 400px;
 	/*これが針と時計盤を重ねるポイント*/
 	position: absolute;
+	/*重なり順制御*/
+	z-index: 1;
+}
+/*情報エリア*/
+.stat {
+	position: relative;
+	/*重なり順制御*/
+	z-index: 2;
 }
